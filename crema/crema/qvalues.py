@@ -68,7 +68,7 @@ def tdc(scores, target, desc=True):
     # Unsigned integers can cause weird things to happen.
     # Convert all scores to floats to for safety.
     if np.issubdtype(scores.dtype, np.integer):
-        scores = scores.astype(np.float_)
+        scores = scores.astype(np.float64)
 
     # Sort and estimate FDR
     if desc:

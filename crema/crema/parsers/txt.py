@@ -137,7 +137,7 @@ def _convert_target_col(data):
     """
     if data.dtype == bool:
         return data
-    elif data.dtype == "object":
+    elif data.dtype == "object" or pd.api.types.is_string_dtype(data):
         targets = {
             "target": True,
             "t": True,

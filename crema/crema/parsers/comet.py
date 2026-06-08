@@ -74,7 +74,7 @@ def read_comet(
                 # First line of Comet output consists only of version
                 # If statement below in case first line is removed
                 line = txt_ref.readline().rstrip()
-                if line.startswith("CometVersion"):
+                if line.startswith("CometVersion") or not line:
                     line = txt_ref.readline().rstrip()
                     skip_first_line = True
                 cols = line.split("\t")
