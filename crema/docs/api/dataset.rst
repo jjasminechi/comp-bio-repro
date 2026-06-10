@@ -1,4 +1,0 @@
-Dataset
-=========
-
-.. automodule:: crema.dataset

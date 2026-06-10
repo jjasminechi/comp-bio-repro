@@ -1,6 +1,6 @@
 # Reproducing the CREMA Paper
 
-Reproduces Figures 2 and 3 from the paper across five species (yeast, *E. coli*, human, mouse, castor plant) using five search engines (Tide, Comet, MSGF+, MSFragger, MSAmanda), plus an extension comparing Percolator against CREMA's three peptide-level FDR methods.
+Reproduces the figures from the paper across five species (yeast, *E. coli*, human, mouse, castor plant) using five search engines (Tide, Comet, MSGF+, MSFragger, MSAmanda), plus an extension comparing Percolator against CREMA's three peptide-level FDR methods.
 
 ---
 
@@ -14,27 +14,27 @@ pip install crema-ms
 
 ### Install Crux (for Tide, Comet, Percolator)
 
-Download Crux 5.0+ from http://crux.ms.
+Download Crux from http://crux.ms.
 
 ### Other tools
 
-- **MSGF+**: `datasets/MSGFPlus/MSGFPlus.jar`
-- **MSFragger**: `datasets/MSFragger-4.4.1.jar`
-- **MSAmanda**: `datasets/MSAmanda/`
+- **MSGF+**: download `MSGFPlus.zip` from https://github.com/MSGFPlus/msgfplus/releases and unzip into `datasets/MSGFPlus/`
+- **MSFragger**: download from https://github.com/Nesvilab/MSFragger/wiki/Preparing-MSFragger#Downloading-MSFragger and place in `datasets/`
+- **MSAmanda**: download from https://github.com/hgb-bin-proteomics/MSAmanda and place in `datasets/MSAmanda/`
 
 ---
 
 ## Datasets
 
-All commands below assume mzML and FASTA files are placed in `crema/datasets/`.
+All commands below assume mzML and FASTA files are placed in `datasets/`. Run all commands from `datasets/` unless noted otherwise.
 
-| Species      | mzML file       | FASTA file         | PRIDE ID   |
-|--------------|-----------------|--------------------|------------|
-| Yeast        | yeast.mzML      | yeast.fasta        | PXD009420  |
-| *E. coli*    | ecoli.mzML      | ecoli.fasta        | PXD011189  |
-| Human        | human.mzML      | human.fasta        | PXD011189  |
-| Mouse        | mouse.mzML      | mouse.fasta        | PXD028550  |
-| Castor plant | castor.mzML     | castor.fasta       | PXD007933  |
+| Species      | PRIDE ID  | Raw Filename                                    |
+|--------------|-----------|-------------------------------------------------|
+| Yeast        | PXD009420 | Tre1                                            |
+| *E. coli*    | PXD011189 | 134 2018 ZBS6 Ecoli SP3 2                       |
+| Human        | PXD011189 | 228 2018 ZBS6 HeLa FASP 3                       |
+| Mouse        | PXD028550 | QHAGP181116_53                           |
+| Castor plant | PXD007933 | Rcom 9 M4 AM R1 7Mar16 Samwise 15-08-55         |
 
 FASTAs are downloaded from UniProt.
 
@@ -42,7 +42,7 @@ FASTAs are downloaded from UniProt.
 
 ## Tide Searches (Figure 2)
 
-Run all commands from `crema/datasets/`. Each species requires three separate Tide searches.
+Each species requires three separate Tide searches.
 
 Replace `{sp}` with: `yeast`, `ecoli`, `human`, `mouse`, `castor`
 
@@ -167,7 +167,7 @@ cd datasets/MSAmanda
 
 ## Percolator (Extension)
 
-Run from `crema/datasets/`. Requires Tide searches to be completed first.
+Run from `datasets/`. Requires Tide searches to be completed first.
 
 ```bash
 # Yeast
@@ -208,12 +208,12 @@ crux percolator castor-percolator-combined/make-pin.pin --output-dir castor-perc
 From the repo root:
 
 ```bash
-python crema/reproduce.py
+python reproduce.py
 ```
 
 This generates:
-- `crema/figure2.png` — 5×5 grid (Figure 2 reproduction + Percolator extension)
-- `crema/figure3.png` — 5×3 grid (Figure 3 reproduction)
+- `figure2.png` — 5×5 grid (Figure 2 reproduction + Percolator extension)
+- `figure3.png` — 5×3 grid (Figure 3 reproduction)
 
 And prints overall improvement averages:
 ```

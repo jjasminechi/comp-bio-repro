@@ -41,23 +41,23 @@ PANELS = [
 # excluding the castor XCorr run where psm-only=0 at 1% FDR.
 SPECIES = {
     "yeast": {
-        "base":      "crema/datasets/yeast-crux-output",
+        "base":      "datasets/yeast-crux-output",
         "title":     "Yeast",
     },
     "ecoli": {
-        "base":      "crema/datasets/ecoli-crux-output",
+        "base":      "datasets/ecoli-crux-output",
         "title":     "E. coli",
     },
     "human": {
-        "base":      "crema/datasets/human-crux-output",
+        "base":      "datasets/human-crux-output",
         "title":     "Human",
     },
     "mouse": {
-        "base":      "crema/datasets/mouse-crux-output",
+        "base":      "datasets/mouse-crux-output",
         "title":     "Mouse",
     },
     "castor": {
-        "base":      "crema/datasets/castor-crux-output",
+        "base":      "datasets/castor-crux-output",
         "title":     "Castor plant",
     },
 }
@@ -386,7 +386,7 @@ def load_engine(engine_key, species_key):
     """Load PSMs for a given engine and species. Returns None if file missing."""
     cfg = FIGURE3_ENGINES[engine_key]
     sp  = FIGURE3_SPECIES[species_key]
-    base = "crema/datasets"
+    base = "datasets"
 
     if cfg["loader"] == "msgf":
         path = f"{base}/{species_key}_msgf.tsv"
