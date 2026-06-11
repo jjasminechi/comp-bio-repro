@@ -1,4 +1,4 @@
-database_name = /Users/jasminechi/Github/comp-bio-repro/crema/datasets/human_msfragger_db.fasta
+database_name = human_msfragger_db.fasta
 num_threads = 4
 precursor_mass_lower = -20
 precursor_mass_upper = 20
