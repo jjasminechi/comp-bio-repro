@@ -1,4 +1,5 @@
-datasets/
+datasets/*
+!datasets/.gitkeep
 !datasets/closed_fragger.params
 !datasets/fragger_*.params
 !datasets/MSAmanda/settings_crema.xml
